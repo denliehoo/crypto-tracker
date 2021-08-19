@@ -44,7 +44,7 @@ function App() {
           {!isLoggedIn && <Redirect to="/login" />}
         </Route>
 
-        <Route path="/:id-:asset-:price-:amount/edit">
+        <Route path="/:id/edit">
           {isLoggedIn && <EditTransactionPage />}
           {!isLoggedIn && <Redirect to="/login" />}
         </Route>

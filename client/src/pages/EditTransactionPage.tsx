@@ -1,26 +1,26 @@
 import classes from "./EditTransactionPage.module.css";
-import { useParams, useHistory } from "react-router-dom";
+import { useParams, useHistory, useLocation } from "react-router-dom";
 import { useContext, useRef } from "react";
 import Card from "../components/ui/Card";
 import { updateTransaction } from "../API";
 import AuthContext from "../store/auth-context";
 
 const EditTransactionPage: React.FC = () => {
-  const {
-    id,
-    asset,
-    price,
-    amount,
-  }: { id: string; asset: string; price: string; amount: string } = useParams();
-
-  console.log(asset);
-  console.log(price);
-  console.log(amount);
-  console.log(id);
-
+  const location = useLocation<{
+    id: string;
+    asset: string;
+    price: string;
+    amount: string;
+  }>();
   const history = useHistory();
   const authCtx = useContext(AuthContext);
   const user = authCtx.userId;
+
+  const { id, asset, price, amount } = location.state;
+  console.log(id);
+  console.log(asset);
+  console.log(price);
+  console.log(amount);
 
   const assetInputRef = useRef<HTMLInputElement>(null);
   const priceInputRef = useRef<HTMLInputElement>(null);
