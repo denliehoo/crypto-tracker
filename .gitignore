@@ -3,6 +3,8 @@
 #for client
 #dependencies
 /client/node_modules
+#credentials for db
+/client/.env
 
 #for server
 #dependencies

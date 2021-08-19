@@ -29,16 +29,15 @@ const RegisterPage = () => {
     //this depends on the app itself. Read the docs. "Firebase REST API in this case" ; maybe can google "MONGODB REST API?"
 
     setIsLoading(true); //isLoading as in we are going to send the login details to the server, so it will be loading
-    let url;
+    let url: any;
     if (isLogin) {
       //handling signin
-      url =
-        "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyCI-o_KY8AwUkpi-9SRUfHzWsD15qVmlOc";
+      url = `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${process.env.REACT_APP_FIREBASE_KEY}`;
     } else {
       //handling signup
-      url =
-        "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyCI-o_KY8AwUkpi-9SRUfHzWsD15qVmlOc";
+      url = `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${process.env.REACT_APP_FIREBASE_KEY}`;
     }
+    console.log(url);
     fetch(url, {
       method: "POST",
       body: JSON.stringify({
