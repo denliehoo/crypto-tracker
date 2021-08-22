@@ -12,7 +12,7 @@ import LoadingSpinner from "../ui/LoadingSpinner";
 //https://api.cryptonator.com/api/ticker/btc-usd
 // https://www.youtube.com/watch?v=RUFxmAjbNbg   passing props through Link
 
-const TodoItem: React.FC<{
+const TransactionItem: React.FC<{
   id: string;
   asset: string;
   price: number;
@@ -130,4 +130,4 @@ const TodoItem: React.FC<{
   );
 };
 
-export default TodoItem;
+export default TransactionItem;

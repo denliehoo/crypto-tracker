@@ -11,9 +11,15 @@ This is a full-stack MERN project written in TypeScript.
 Rationale being that I don't want to have 2 separate databases
 
 **Create an overview page**
-Should be created using MONGODB realm and consist graph / charts of a breakdown of the user portfolio
+Should be created using MONGODB realm (or charts.js) and consist graph / charts of a breakdown of the user portfolio
+
+**Refactor Code**
+
+**Find a database/store to keep the crypto logos**
 
 # Change Log
+
+**23 Aug 2021 - Updated OverviewPage & added new component CollatedTransactionItem**
 
 **19 Aug 2021 - Formatted READMe.md file**
 

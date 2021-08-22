@@ -81,25 +81,6 @@ const AllTransactionsPage: React.FC<{}> = () => {
       ))
   );
 
-
-  // const content = transactionLoading ? (
-  //   <LoadingSpinner />
-  // ) : (
-  //   transactions
-  //     .filter((item) => item.user === authCtx.userId)
-  //     .map((item) => (
-  //       <TransactionItem
-  //         key={item._id}
-  //         id={item._id}
-  //         asset={item.asset}
-  //         price={item.price}
-  //         amount={item.amount}
-  //         onRemoveTransaction={deleteTransactionHandler.bind(null, item._id)}
-  //       />
-  //     ))
-  // );
-
-
   const filterInputRef = useRef<HTMLInputElement>(null);
   const filterSubmissionHandler = (event: React.FormEvent) => {
     event.preventDefault();
@@ -121,6 +102,10 @@ const AllTransactionsPage: React.FC<{}> = () => {
         <input ref={filterInputRef} />
         <button>Filter</button>
       </form>
+      <br />
+      {currentQueryParams && (<div>
+        Viewing all the transactions for {currentQueryParams}
+      </div>)}
       <ul className={classes.list}>{content}</ul>
     </Fragment>
   );
