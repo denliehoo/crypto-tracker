@@ -24,6 +24,12 @@ Should be created using MONGODB realm (or charts.js) and consist graph / charts 
 
 # Change Log
 
+**24 Aug 2021 - Made a Market Prices page** <br />
+Made a market prices page, alone with a MarketDataItem Component. <br />
+Still need to work on styling for the page <br />
+Moving on to changing the fetching API to coingecko instead of cryptonator <br />
+
+
 **23 Aug 2021 - Updated OverviewPage & added new component CollatedTransactionItem** <br />
 Added a new component called CollatedTransactionItem which is used in OverviewPage <br />
 However, still need to add charts (probably using chart.js)

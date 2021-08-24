@@ -1,0 +1,27 @@
+
+.arrow{
+    cursor: pointer;
+}
+
+.mute{
+    color: transparent;
+    cursor: default;
+}
+th{
+    text-align: left;
+}
+th,td{
+    padding: 15px;
+}
+td{
+    border-bottom: black 1px solid;
+}
+table{
+    border-collapse: collapse;
+
+}
+
+.body{
+    position: absolute;
+}
+

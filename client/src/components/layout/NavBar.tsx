@@ -19,6 +19,11 @@ const NavBar: React.FC = () => {
       <div className={classes.logo}>Crypto Tracker</div>
       <nav>
         <ul>
+          <li>
+            <Link to="/currentPrices">Market Prices</Link>
+          </li>
+
+
           {isLoggedIn && (
             <li>
               <Link to="/overview">Overview</Link>

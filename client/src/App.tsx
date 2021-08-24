@@ -11,6 +11,7 @@ import RegisterPage from "./pages/user/RegisterPage";
 import AuthContext from "./store/auth-context";
 import { useContext } from "react";
 import LandingPage from "./pages/LandingPage";
+import MarketDataPage from "./pages/marketPrice/MarketDataPage";
 
 function App() {
   const authCtx = useContext(AuthContext);
@@ -22,6 +23,10 @@ function App() {
       <Switch>
         <Route path="/" exact>
           <LandingPage />
+        </Route>
+
+        <Route path="/currentPrices">
+          <MarketDataPage />
         </Route>
 
         <Route path="/overview">
