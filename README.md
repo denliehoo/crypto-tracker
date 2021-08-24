@@ -5,6 +5,11 @@ This is a full-stack MERN project written in TypeScript.
 
 # Todo Log
 
+**Do a "Current Market Prices" Page**
+Data should be received from coingecko for the current market prices. <br />
+It should look similarly to coingecko. Also test in POSTMAN <br />
+Should also use coingecko to fetch prices instead of cryptonator API for other functions
+
 **Do a landing page**
 
 **Use MongoDB realm for user authentication instead of firebase** <br />
