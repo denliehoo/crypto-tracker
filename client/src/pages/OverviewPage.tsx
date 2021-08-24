@@ -86,7 +86,6 @@ const OverviewPage: React.FC<{}> = () => {
                     asset={item.asset}
                     price={item.totalPrice}
                     amount={item.totalAmount}
-
                 />
             ))
     );

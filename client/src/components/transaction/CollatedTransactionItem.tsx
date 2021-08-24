@@ -72,6 +72,7 @@ const CollatedTransactionItem: React.FC<any> = (props) => {
                         <span className={classes.down}>Down {percentChange}%</span>
                     )}
                 </div>
+                <br />
             </Card>
         </li>
     );
