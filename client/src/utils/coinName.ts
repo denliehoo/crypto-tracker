@@ -45310,6 +45310,7 @@ let coin: any = [
 
 coin.map((i: any) => {
     coinName[i.symbol] = i.id;
+    return "hello"
 })
 
 export default coinName

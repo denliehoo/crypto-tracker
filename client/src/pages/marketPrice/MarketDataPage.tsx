@@ -3,8 +3,6 @@ import axios from "axios";
 import MarketDataItem from "../../components/marketPage/MarketDataItem";
 import { useEffect, useState } from "react";
 import LoadingSpinner from "../../components/ui/LoadingSpinner";
-import { Fragment } from "react";
-import { createImportSpecifier } from "typescript";
 
 
 const MarketDataPage: React.FC<{}> = () => {

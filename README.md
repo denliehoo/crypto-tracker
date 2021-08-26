@@ -24,6 +24,10 @@ Should be created using MONGODB realm (or charts.js) and consist graph / charts 
 
 # Change Log
 
+**26 Aug 2021 - Changed to CoinGecko API for AllTransactions Page**<br />
+Changed the API to coingecko api for all transactions page. <br />
+Moving on to change API to coingecko for Overview page also. 
+
 **24 Aug 2021 - Made a Market Prices page** <br />
 Made a market prices page, alone with a MarketDataItem Component. <br />
 Still need to work on styling for the page <br />
