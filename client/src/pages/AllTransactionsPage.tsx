@@ -104,6 +104,7 @@ const AllTransactionsPage: React.FC<{}> = () => {
       .catch((err) => console.log(err));
   };
 
+  console.log("this is api data", apiData)
   const content = transactionLoading ? (
     <LoadingSpinner />
   ) : (
@@ -118,6 +119,7 @@ const AllTransactionsPage: React.FC<{}> = () => {
           asset={item.asset}
           price={item.price}
           amount={item.amount}
+          image={(apiData[item.asset.toLowerCase()]["image"])}
           onRemoveTransaction={deleteTransactionHandler.bind(null, item._id)}
         />
       ))

@@ -18,6 +18,7 @@ const TransactionItem: React.FC<{
   price: number;
   amount: number;
   currentValue: number;
+  image: string;
   onRemoveTransaction: () => void;
 }> = (props) => {
   //starts here
@@ -52,7 +53,7 @@ const TransactionItem: React.FC<{
           <span>
             <img
               className={classes.logos}
-              src={process.env.PUBLIC_URL + `crypto_logos/${props.asset}.png`}
+              src={props.image}
               alt={"logo"}
             />
           </span>

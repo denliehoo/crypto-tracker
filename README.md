@@ -24,6 +24,8 @@ Should be created using MONGODB realm (or charts.js) and consist graph / charts 
 
 # Change Log
 
+**26 Aug 2021 - Changed to CoinGecko API for Overview Page**<br />
+
 **26 Aug 2021 - Changed to CoinGecko API for AllTransactions Page**<br />
 Changed the API to coingecko api for all transactions page. <br />
 Moving on to change API to coingecko for Overview page also. 
