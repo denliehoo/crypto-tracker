@@ -24,7 +24,7 @@ const MarketDataItem: React.FC<any> = (props) => {
     return (
         <tr>
             <td>{props.rank}</td>
-            <td colSpan={3}><img className={classes.logo} src={props.image}></img>{props.name}</td>
+            <td colSpan={3}><img className={classes.logo} src={props.image} alt={props.asset} ></img>{props.name}</td>
             <td>{props.symbol.toUpperCase()}</td>
             <td colSpan={2}>${formatPrice(props.price)}</td>
             <td colSpan={2} className={props.hourPriceChange < 0 ? classes.negative : classes.positive}>{formatPercent(props.hourPriceChange)}%</td>
@@ -37,13 +37,3 @@ const MarketDataItem: React.FC<any> = (props) => {
 };
 
 export default MarketDataItem;
-
-
-{/* <th>#</th>
-<th>Coin</th>
-<th>Ticker</th>
-<th>Price</th>
-<th>1h</th>
-<th>24h</th>
-<th>7d</th>
-<th>Mkt Cap</th> */}

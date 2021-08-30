@@ -1,13 +1,12 @@
 import Card from "../ui/Card";
 import classes from "./TransactionItem.module.css";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 import Modal from "../ui/Modal";
 import Backdrop from "../ui/Backdrop";
 
 import { Link } from "react-router-dom";
-import LoadingSpinner from "../ui/LoadingSpinner";
 
 //https://api.cryptonator.com/api/ticker/btc-usd
 // https://www.youtube.com/watch?v=RUFxmAjbNbg   passing props through Link

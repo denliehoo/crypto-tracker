@@ -1,5 +1,5 @@
 import classes from "./EditTransactionPage.module.css";
-import { useParams, useHistory, useLocation } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 import { useContext, useRef } from "react";
 import Card from "../components/ui/Card";
 import { updateTransaction } from "../API";

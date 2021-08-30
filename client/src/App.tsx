@@ -10,7 +10,7 @@ import OverviewPage from "./pages/OverviewPage";
 import RegisterPage from "./pages/user/RegisterPage";
 import AuthContext from "./store/auth-context";
 import { useContext } from "react";
-import LandingPage from "./pages/LandingPage";
+import LandingPage from "./pages/landing/LandingPage";
 import MarketDataPage from "./pages/marketPrice/MarketDataPage";
 
 function App() {

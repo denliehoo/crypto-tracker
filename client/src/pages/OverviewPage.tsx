@@ -5,6 +5,7 @@ import React, {
     useState,
     useContext,
     Fragment,
+    useCallback,
 } from "react";
 import LoadingSpinner from "../components/ui/LoadingSpinner";
 import AuthContext from "../store/auth-context";
@@ -26,12 +27,10 @@ const OverviewPage: React.FC<{}> = () => {
 
     const authCtx = useContext(AuthContext);
 
-    useEffect(() => {
-        fetchTransactions();
-    }, []);
+
 
     //cant seem to access state from inside? Although can set state
-    const fetchTransactions = (): void => {
+    const fetchTransactions = useCallback(() => {
         setTimeout(() => {
             getTransactions()
                 .then(({ data: { transactions } }: ITransaction[] | any) => {
@@ -72,7 +71,7 @@ const OverviewPage: React.FC<{}> = () => {
                     for (let a of listOfAssets) { apiListOfAsset.push(coinName[a.toLowerCase()]) }
                     console.log("list of assets for the API", apiListOfAsset)
 
-                    const data = axios.get(`${baseUrl}/coins/markets`, {
+                    axios.get(`${baseUrl}/coins/markets`, {
                         params: {
                             vs_currency: "usd",
                             ids: apiListOfAsset.join(",")
@@ -85,6 +84,7 @@ const OverviewPage: React.FC<{}> = () => {
                                 image: i.image,
                                 current_price: i.current_price
                             }
+                            return null
                         })
                         console.log("this is compiledData", compiledData)
                         setApiData(compiledData)
@@ -93,8 +93,12 @@ const OverviewPage: React.FC<{}> = () => {
                 })
                 .catch((err: Error) => console.log(err));
         }, 200);
-    };
+    }, [authCtx.userId])
 
+
+    useEffect(() => {
+        fetchTransactions();
+    }, [fetchTransactions]);
 
     console.log("txn outside: ", transactions)
 

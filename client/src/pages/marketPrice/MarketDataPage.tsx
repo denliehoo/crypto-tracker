@@ -18,7 +18,7 @@ const MarketDataPage: React.FC<{}> = () => {
     }, [pageNumber])
 
     const getMarketPrice = (pageNum: any) => {
-        const data = axios.get(`${baseUrl}/coins/markets`, {
+        axios.get(`${baseUrl}/coins/markets`, {
             params: {
                 vs_currency: "usd",
                 page: pageNum,
@@ -36,7 +36,7 @@ const MarketDataPage: React.FC<{}> = () => {
 
 
     console.log("This is the data", marketData)
-    const content = dataLoading ? <LoadingSpinner /> : (marketData
+    const content = dataLoading ? (<tr><td><LoadingSpinner /> </td></tr>) : (marketData
         .map((item: any) =>
             <MarketDataItem
                 key={item.symbol}

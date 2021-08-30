@@ -6,6 +6,7 @@ import React, {
   useContext,
   Fragment,
   useRef,
+  useCallback,
 } from "react";
 import { useHistory, useLocation } from "react-router-dom";
 import TransactionItem from "../components/transaction/TransactionItem";
@@ -39,13 +40,10 @@ const AllTransactionsPage: React.FC<{}> = () => {
 
   const authCtx = useContext(AuthContext);
 
-  useEffect(() => {
-    fetchTransactions();
-  }, []);
 
   // placed a setTimeOut here to slightly delay.
   //This is because MongoDB might be a bit slow in updating and it'll display old data(i think)
-  const fetchTransactions = (): void => {
+  const fetchTransactions = useCallback(() => {
     setTimeout(() => {
       getTransactions()
         .then(({ data: { transactions } }: ITransaction[] | any) => {
@@ -69,7 +67,7 @@ const AllTransactionsPage: React.FC<{}> = () => {
           return listOfAssets.join(",")
         }).then((listOfAssets) => {
           console.log("list of asset", listOfAssets)
-          const data = axios.get(`${baseUrl}/coins/markets`, {
+          axios.get(`${baseUrl}/coins/markets`, {
             params: {
               vs_currency: "usd",
               ids: listOfAssets
@@ -83,6 +81,7 @@ const AllTransactionsPage: React.FC<{}> = () => {
                   image: i.image,
                   current_price: i.current_price
                 }
+                return null
               })
               setApiData(compiledData)
               return compiledData
@@ -91,7 +90,12 @@ const AllTransactionsPage: React.FC<{}> = () => {
         })
         .catch((err: Error) => console.log(err));
     }, 200);
-  };
+  }, [authCtx.userId])
+
+  useEffect(() => {
+    fetchTransactions();
+  }, [fetchTransactions]);
+
 
   const deleteTransactionHandler = (_id: string): void => {
     deleteTransaction(_id)
