@@ -45313,4 +45313,8 @@ coin.map((i: any) => {
     return "hello"
 })
 
+export const coinTickerArray = coin.map((i: any) => {
+    return i.symbol.toUpperCase()
+})
+
 export default coinName

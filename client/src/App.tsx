@@ -12,6 +12,7 @@ import AuthContext from "./store/auth-context";
 import { useContext } from "react";
 import LandingPage from "./pages/landing/LandingPage";
 import MarketDataPage from "./pages/marketPrice/MarketDataPage";
+//npm i react-chartjs-2
 
 function App() {
   const authCtx = useContext(AuthContext);

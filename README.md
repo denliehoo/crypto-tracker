@@ -4,28 +4,23 @@ This project aims to help people track their cryptocurrency portfolio. <br />
 This is a full-stack MERN project written in TypeScript.
 
 # Todo Log
-
-**Do a "Current Market Prices" Page**
-Data should be received from coingecko for the current market prices. <br />
-It should look similarly to coingecko. Also test in POSTMAN <br />
-Should also use coingecko to fetch prices instead of cryptonator API for other functions
+**Work on form validation**
 
 **Do a landing page**
 
 **Use MongoDB realm for user authentication instead of firebase** <br />
 Rationale being that I don't want to have 2 separate databases
 
-**Create an overview page** <br />
-Should be created using MONGODB realm (or charts.js) and consist graph / charts of a breakdown of the user portfolio
-
 **Refactor Code** 
-
-**Find a database/store to keep the crypto logos**
 
 # Change Log
 
-**30 Aug 2021 - Debugged to clear errors in console**<br />
+**30 Aug 2021 - Added charts & form validation**<br />
+Installed chart.js and used it in the overview page <br />
+Started on form validation for new transactions to ensure that the asset is within the array of tickers <br />
+Need to work more on the validation + do validation for edit page
 
+**30 Aug 2021 - Debugged to clear errors in console**<br />
 
 **26 Aug 2021 - Changed to CoinGecko API for Overview Page**<br />
 

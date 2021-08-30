@@ -12,6 +12,7 @@ import AuthContext from "../store/auth-context";
 import CollatedTransactionItem from "../components/transaction/CollatedTransactionItem";
 import axios from "axios";
 import coinName from "../utils/coinName";
+import { Pie } from 'react-chartjs-2'; // https://www.npmjs.com/package/react-chartjs-2
 
 // add sorting here e.g. sortByCrypto?XXX BTC then BTC only etc
 // then maybe at the top put a "total BTC" also
@@ -23,11 +24,10 @@ const OverviewPage: React.FC<{}> = () => {
     const [transactionLoading, setTransactionLoading] = useState(true);
     const [transactions, setTransactions] = useState<any>([]);
     const [apiData, setApiData] = useState<any>({})
+    const [showChart, setShowChart] = useState(false);
 
 
     const authCtx = useContext(AuthContext);
-
-
 
     //cant seem to access state from inside? Although can set state
     const fetchTransactions = useCallback(() => {
@@ -54,9 +54,6 @@ const OverviewPage: React.FC<{}> = () => {
                             amount: 0,
                         })
                     }
-                    console.log("list of assets", listOfAssets)
-                    console.log("current txn", transactions)
-                    console.log("collated ", collatedTransactions)
                     for (let t of transactions) {
                         for (let c in collatedTransactions) {
                             if (t.asset === collatedTransactions[c].asset) {
@@ -65,11 +62,11 @@ const OverviewPage: React.FC<{}> = () => {
                             }
                         }
                     }
-                    console.log("updated collated", collatedTransactions)
+
                     setTransactions(collatedTransactions)
                     let apiListOfAsset: any = []
                     for (let a of listOfAssets) { apiListOfAsset.push(coinName[a.toLowerCase()]) }
-                    console.log("list of assets for the API", apiListOfAsset)
+
 
                     axios.get(`${baseUrl}/coins/markets`, {
                         params: {
@@ -86,9 +83,11 @@ const OverviewPage: React.FC<{}> = () => {
                             }
                             return null
                         })
-                        console.log("this is compiledData", compiledData)
+
                         setApiData(compiledData)
+                    }).then(() => {
                         setTransactionLoading(false)
+
                     })
                 })
                 .catch((err: Error) => console.log(err));
@@ -100,7 +99,43 @@ const OverviewPage: React.FC<{}> = () => {
         fetchTransactions();
     }, [fetchTransactions]);
 
-    console.log("txn outside: ", transactions)
+    const randomNum = () => {
+        return Math.floor(Math.random() * 255)
+    }
+    let colorObject: any = {
+        backgroundColor: [],
+        borderColor: []
+    }
+    if (!transactionLoading) {
+        for (let a in transactions) {
+            const r = randomNum()
+            const g = randomNum()
+            const b = randomNum()
+            colorObject.backgroundColor.push(`rgb(${r},${g},${b},0.2)`)
+            colorObject.borderColor.push(`rgb(${r},${g},${b},1)`)
+        }
+        console.log(colorObject)
+    }
+
+
+    const chart = transactionLoading ? (<LoadingSpinner />) : (<Pie data={{
+        labels: transactions.map((t: any) => { return t.asset }),
+        datasets: [
+            {
+                label: 'Breakdown of portfolio value',
+                data: transactions.map((t: any) => { return (apiData[t.asset.toLowerCase()]["current_price"]) * t.amount }),
+                backgroundColor: colorObject.backgroundColor,
+                borderColor: colorObject.borderColor,
+                borderWidth: 1,
+            },
+        ],
+    }} />)
+
+    const toggleShowChart = () => {
+        setShowChart((prev) => { console.log(prev); return !prev })
+
+    }
+
 
     const content = transactionLoading ? (
         <LoadingSpinner />
@@ -114,7 +149,6 @@ const OverviewPage: React.FC<{}> = () => {
                     amount={item.amount}
                     currentValue={(apiData[item.asset.toLowerCase()]["current_price"]) * item.amount}
                     image={(apiData[item.asset.toLowerCase()]["image"])}
-
                 />
             ))
     );
@@ -122,6 +156,8 @@ const OverviewPage: React.FC<{}> = () => {
 
     return (
         <Fragment>
+            {showChart ? (<div>{chart}</div>) : <div></div>}
+            <button onClick={toggleShowChart}>{showChart ? "Hide Chart" : "Show Chart"}</button>
             <ul className={classes.list}>{content}</ul>
         </Fragment>
     );
