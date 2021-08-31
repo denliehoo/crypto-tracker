@@ -15,6 +15,11 @@ Rationale being that I don't want to have 2 separate databases
 
 # Change Log
 
+**31 Aug 2021 - Removed coinName.ts and replaced it with context** <br />
+Previously, coinName.ts was copy pasted from the list available from coingecko <br />
+This is undesirable because we do not want it to be static. <br />
+Instead, used CoinGecko API to get the list of coins available and then store it into a context where it can be globally used by other files. 
+
 **30 Aug 2021 - Added charts & form validation**<br />
 Installed chart.js and used it in the overview page <br />
 Started on form validation for new transactions to ensure that the asset is within the array of tickers <br />

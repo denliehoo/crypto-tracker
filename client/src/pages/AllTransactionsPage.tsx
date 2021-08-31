@@ -13,7 +13,7 @@ import TransactionItem from "../components/transaction/TransactionItem";
 import LoadingSpinner from "../components/ui/LoadingSpinner";
 import AuthContext from "../store/auth-context";
 import axios from "axios";
-import coinName from "../utils/coinName";
+import CoinContext from "../store/coins-context";
 
 
 // add sorting here e.g. sortByCrypto?XXX BTC then BTC only etc
@@ -24,6 +24,9 @@ const AllTransactionsPage: React.FC<{}> = () => {
   const [transactions, setTransactions] = useState<ITransaction[]>([]);
   const [transactionLoading, setTransactionLoading] = useState(true);
   const [apiData, setApiData] = useState<any>({})
+  const coinCtx = useContext(CoinContext)
+  const coinName = coinCtx.coinName
+
 
   // might delete later
   const history = useHistory();

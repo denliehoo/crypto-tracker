@@ -11,8 +11,8 @@ import LoadingSpinner from "../components/ui/LoadingSpinner";
 import AuthContext from "../store/auth-context";
 import CollatedTransactionItem from "../components/transaction/CollatedTransactionItem";
 import axios from "axios";
-import coinName from "../utils/coinName";
 import { Pie } from 'react-chartjs-2'; // https://www.npmjs.com/package/react-chartjs-2
+import CoinContext from "../store/coins-context";
 
 // add sorting here e.g. sortByCrypto?XXX BTC then BTC only etc
 // then maybe at the top put a "total BTC" also
@@ -25,6 +25,8 @@ const OverviewPage: React.FC<{}> = () => {
     const [transactions, setTransactions] = useState<any>([]);
     const [apiData, setApiData] = useState<any>({})
     const [showChart, setShowChart] = useState(false);
+    const coinCtx = useContext(CoinContext)
+    const coinName = coinCtx.coinName
 
 
     const authCtx = useContext(AuthContext);
