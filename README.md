@@ -4,6 +4,7 @@ This project aims to help people track their cryptocurrency portfolio. <br />
 This is a full-stack MERN project written in TypeScript.
 
 # Todo Log
+
 **Work on form validation**
 
 **Do a landing page**
@@ -11,14 +12,17 @@ This is a full-stack MERN project written in TypeScript.
 **Use MongoDB realm for user authentication instead of firebase** <br />
 Rationale being that I don't want to have 2 separate databases
 
-**Refactor Code** 
+**Refactor Code**
 
 # Change Log
+
+**2 Sep 2021 - Added TradingView Widgets & Charts** <br />
+Might remove some. Doing tests on it
 
 **31 Aug 2021 - Removed coinName.ts and replaced it with context** <br />
 Previously, coinName.ts was copy pasted from the list available from coingecko <br />
 This is undesirable because we do not want it to be static. <br />
-Instead, used CoinGecko API to get the list of coins available and then store it into a context where it can be globally used by other files. 
+Instead, used CoinGecko API to get the list of coins available and then store it into a context where it can be globally used by other files.
 
 **30 Aug 2021 - Added charts & form validation**<br />
 Installed chart.js and used it in the overview page <br />
@@ -31,13 +35,12 @@ Need to work more on the validation + do validation for edit page
 
 **26 Aug 2021 - Changed to CoinGecko API for AllTransactions Page**<br />
 Changed the API to coingecko api for all transactions page. <br />
-Moving on to change API to coingecko for Overview page also. 
+Moving on to change API to coingecko for Overview page also.
 
 **24 Aug 2021 - Made a Market Prices page** <br />
 Made a market prices page, alone with a MarketDataItem Component. <br />
 Still need to work on styling for the page <br />
 Moving on to changing the fetching API to coingecko instead of cryptonator <br />
-
 
 **23 Aug 2021 - Updated OverviewPage & added new component CollatedTransactionItem** <br />
 Added a new component called CollatedTransactionItem which is used in OverviewPage <br />

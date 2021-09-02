@@ -13,6 +13,9 @@ import { useContext } from "react";
 import LandingPage from "./pages/landing/LandingPage";
 import MarketDataPage from "./pages/marketPrice/MarketDataPage";
 //npm i react-chartjs-2
+import TradingViewChart from "./pages/TradingViewChart";
+import TradingViewWidgetPage from "./pages/TradingViewWidget";
+import CryptoDetails from "./pages/marketPrice/CryptoDetails";
 
 function App() {
   const authCtx = useContext(AuthContext);
@@ -28,6 +31,18 @@ function App() {
 
         <Route path="/currentPrices">
           <MarketDataPage />
+        </Route>
+
+        <Route path="/details/:asset">
+          <CryptoDetails />
+        </Route>
+
+        <Route path="/chart">
+          <TradingViewChart />
+        </Route>
+
+        <Route path="/widget">
+          <TradingViewWidgetPage />
         </Route>
 
         <Route path="/overview">

@@ -32,3 +32,6 @@ type ApiUserDataType = {
   users: IUser[];
   user?: IUser;
 };
+
+//might delete later
+// declare module "react-tradingview-widget";
