@@ -4,8 +4,8 @@
 
 // https://api.coingecko.com/api/v3/coins/bitcoin/market_chart/range?vs_currency=usd&from=967874112&to=2072325312
 
-import { useEffect, useRef } from "react";
-import { createChart } from "lightweight-charts";
+import { Fragment, useEffect, useRef } from "react";
+import { createChart, LineStyle, LineType } from "lightweight-charts";
 
 const TradingViewChart: React.FC<{}> = () => {
   const ref = useRef(null);
@@ -13,9 +13,24 @@ const TradingViewChart: React.FC<{}> = () => {
   // // linechart
   // need useEffect in order to make the chart dynamic
   useEffect(() => {
-    const chart = createChart(ref.current!, { width: 400, height: 300 });
-    const lineSeries = chart.addLineSeries();
-    lineSeries.setData([
+    const chart = createChart(ref.current!, {
+      width: 400,
+      height: 300,
+      localization: {
+        dateFormat: "dd MMM yy",
+      },
+      watermark: {
+        color: "rgba(11, 94, 29, 0.4)",
+        visible: true,
+        text: "Your portfolio",
+        fontSize: 24,
+        horzAlign: "left",
+        vertAlign: "bottom",
+      },
+    });
+
+    const areaSeries = chart.addAreaSeries();
+    areaSeries.setData([
       { time: "2019-04-11", value: 80.01 },
       { time: "2019-04-12", value: 96.63 },
       { time: "2019-04-13", value: 76.64 },
@@ -27,6 +42,48 @@ const TradingViewChart: React.FC<{}> = () => {
       { time: "2019-04-19", value: 81.89 },
       { time: "2019-04-20", value: 74.43 },
     ]);
+    areaSeries.applyOptions({
+      lineColor: "#8B0000",
+      topColor: "rgba(100,0,0,0.5)",
+      bottomColor: "rgba(100,0,0,0.05)",
+      lineStyle: LineStyle.Dotted,
+    });
+
+    const lineSeries2 = chart.addLineSeries();
+    lineSeries2.setData([
+      { time: "2019-04-11", value: 66.01 },
+      { time: "2019-04-12", value: 76.63 },
+      { time: "2019-04-13", value: 36.64 },
+      { time: "2019-04-14", value: 51.89 },
+      { time: "2019-04-15", value: 79.43 },
+      { time: "2019-04-16", value: 50.01 },
+      { time: "2019-04-17", value: 76.63 },
+      { time: "2019-04-18", value: 86.64 },
+      { time: "2019-04-19", value: 51.89 },
+      { time: "2019-04-20", value: 64.43 },
+    ]);
+    lineSeries2.applyOptions({
+      color: "#006400",
+      lineWidth: 1,
+    });
+
+    const lineSeries3 = chart.addLineSeries();
+    lineSeries3.setData([
+      { time: "2019-04-11", value: 6.01 },
+      { time: "2019-04-12", value: 7.63 },
+      { time: "2019-04-13", value: 3.64 },
+      { time: "2019-04-14", value: 5.89 },
+      { time: "2019-04-15", value: 7.43 },
+      { time: "2019-04-16", value: 5.01 },
+      { time: "2019-04-17", value: 7.63 },
+      { time: "2019-04-18", value: 8.64 },
+      { time: "2019-04-19", value: 5.89 },
+      { time: "2019-04-20", value: 6.43 },
+    ]);
+    lineSeries3.applyOptions({
+      color: "#00008B",
+      lineWidth: 4,
+    });
   }, []);
 
   //candlestick
@@ -110,7 +167,11 @@ const TradingViewChart: React.FC<{}> = () => {
   //     ]);
   //   }, []);
 
-  return <div ref={ref} />;
+  return (
+    <Fragment>
+      <div ref={ref} />
+    </Fragment>
+  );
 };
 
 export default TradingViewChart;
