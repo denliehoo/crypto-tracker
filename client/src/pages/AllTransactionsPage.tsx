@@ -93,7 +93,7 @@ const AllTransactionsPage: React.FC<{}> = () => {
         })
         .catch((err: Error) => console.log(err));
     }, 200);
-  }, [authCtx.userId])
+  }, [authCtx.userId, coinName])
 
   useEffect(() => {
     fetchTransactions();
