@@ -1,29 +1,10 @@
-// import classes from "./TradingViewWidget.module.css";
-//npm install --save react-tradingview-widget
-//https://github.com/rafaelklaessen/react-tradingview-widget
-
-// import TradingViewWidget, { Themes } from "react-tradingview-widget";
-
-// const TradingViewWidgetPage: React.FC<{}> = () => {
-//   return (
-//     <TradingViewWidget
-//       symbol="KRAKEN:ETHUSDT"
-//       theme={Themes.DARK}
-//       timezone="Asia/Singapore"
-//     />
-//   );
-// };
-
-// export default TradingViewWidgetPage;
-
-// ignore above
-
 import {
   AdvancedRealTimeChart,
   TechnicalAnalysis,
   MiniChart,
   TickerTape,
-} from "react-ts-tradingview-widgets";
+} from "react-ts-tradingview-widgets"; //npm i react-ts-tradingview-widgets
+// DOCS
 
 const TradingViewWidgetPage: React.FC<{}> = () => {
   const tickerTapeSymbols = [

@@ -30,7 +30,6 @@ const MarketDataItem: React.FC<any> = (props) => {
         </Link>
       </td>
       <td>{props.symbol.toUpperCase()}</td>
-      <td></td>
       <td colSpan={2}>${formatPrice(props.price)}</td>
       <td
         colSpan={2}
