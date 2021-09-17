@@ -4,7 +4,7 @@ import {
   MiniChart,
   TickerTape,
 } from "react-ts-tradingview-widgets"; //npm i react-ts-tradingview-widgets
-// DOCS
+// DOCS https://github.com/JorrinKievit/react-ts-tradingview-widgets
 
 const TradingViewWidgetPage: React.FC<{}> = () => {
   const tickerTapeSymbols = [
