@@ -16,6 +16,7 @@ import MarketDataPage from "./pages/marketPrice/MarketDataPage";
 import TradingViewChart from "./pages/TradingViewChart";
 import TradingViewWidgetPage from "./pages/TradingViewWidget";
 import CryptoDetails from "./pages/marketPrice/CryptoDetails";
+import Sb from "./pages/Sb";
 
 function App() {
   const authCtx = useContext(AuthContext);
@@ -43,6 +44,10 @@ function App() {
 
         <Route path="/widget">
           <TradingViewWidgetPage />
+        </Route>
+
+        <Route path="/sb">
+          <Sb />
         </Route>
 
         <Route path="/overview">
