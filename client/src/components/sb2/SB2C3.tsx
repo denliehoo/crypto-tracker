@@ -2,7 +2,7 @@ import Highcharts from 'highcharts' // npm i highcharts highcharts-react-officia
 import HighchartsReact from 'highcharts-react-official'
 
 //line chart
-const C3: React.FC<{}> = (props) => {
+const SB2C3: React.FC<{}> = (props) => {
     const options: Highcharts.Options = {
         title: {
             text: 'Asset Net Worth',
@@ -68,4 +68,4 @@ const C3: React.FC<{}> = (props) => {
     );
 };
 
-export default C3;
+export default SB2C3;

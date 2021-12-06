@@ -17,6 +17,7 @@ import TradingViewChart from "./pages/TradingViewChart";
 import TradingViewWidgetPage from "./pages/TradingViewWidget";
 import CryptoDetails from "./pages/marketPrice/CryptoDetails";
 import Sb from "./pages/Sb";
+import Sb2 from "./pages/Sb2";
 
 function App() {
   const authCtx = useContext(AuthContext);
@@ -49,6 +50,12 @@ function App() {
         <Route path="/sb">
           <Sb />
         </Route>
+
+
+        <Route path="/sb2">
+          <Sb2 />
+        </Route>
+
 
         <Route path="/overview">
           {isLoggedIn && <OverviewPage />}
